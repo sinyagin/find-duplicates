@@ -1,5 +1,7 @@
 import re
 import json
+import os
+import sys
 from collections import Counter
 
 # Regular expression to identify UUIDs
@@ -11,7 +13,7 @@ excluded_fields = {"parentId", "rootId", "_ref"}
 def find_uuids(data, uuids=None, parent_key=None):
     if uuids is None:
         uuids = []
-        
+
     if isinstance(data, dict):
         for key, value in data.items():
             if key not in excluded_fields:  # Skip excluded fields
@@ -31,7 +33,20 @@ def find_duplicate_uuids(json_data):
     return duplicates
 
 if __name__ == "__main__":
-    input_file = "12-20-24.json"
+    if len(sys.argv) != 2:
+        print("Usage: python find-duplicates.py <filename>")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+
+    # Validate the filename
+    if not os.path.isfile(input_file):
+        print(f"File not found: {input_file}")
+        sys.exit(1)
+
+    if not input_file.endswith('.json'):
+        print(f"Invalid file type. Please provide a JSON file.")
+        sys.exit(1)
 
     try:
         with open(input_file, "r") as file:
@@ -40,7 +55,5 @@ if __name__ == "__main__":
         # Find duplicates
         duplicates = find_duplicate_uuids(json_data)
         print("Duplicate UUIDs:", duplicates)
-    except FileNotFoundError:
-        print(f"File not found: {input_file}")
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON: {e}")
