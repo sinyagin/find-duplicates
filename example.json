@@ -1,0 +1,24 @@
+{
+    "entities": [
+        {
+            "id": "d3d3934a-3ad2-42dd-8c6a-84e019c50a7c",
+            "name": "Entity 1",
+            "type": "producer"
+        },
+        {
+            "id": "d3d3934a-3ad2-42dd-8c6a-84e019c50a7c",
+            "name": "Entity 2",
+            "type": "beneficiary"
+        },
+        {
+            "id": "f4b3934b-4cd2-53ef-9c7a-95f020d61b8d",
+            "name": "Entity 3",
+            "type": "consumer"
+        },
+        {
+            "id": "f4b3934b-4cd2-53ef-9c7a-95f020d61b8d",
+            "name": "Entity 4",
+            "type": "provider"
+        }
+    ]
+}
