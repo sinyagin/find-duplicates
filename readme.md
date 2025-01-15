@@ -28,7 +28,7 @@ Command:
 ```
 Output:
 ```
-Duplicate UUIDs: ['d3d3934a-3ad2-42dd-8c6a-84e019c50a7c', 'f4b3934b-4cd2-53ef-9c7a-95f020d61b8d']
+Duplicate UUIDs: ['abc-123']
 ```
 Dependencies
 - Python 3.x
